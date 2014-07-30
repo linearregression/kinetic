@@ -20,3 +20,21 @@ You can start an erl with:
 
 `development.config` allows the developer to override some configuration
 values to allow for different setups.
+
+
+To Build a release
+We use git tag as the cutoff of what a release should look like.
+So before making a release:
+- make sure you create a tag to freeze the whole state of code in master branch
+  example:
+  -- git tag -a 1.0.0 -m "Version 1.0.0 release. Brief comments"
+  -- git push --tag 1.0.0
+  to check git tag
+- You may be in DETACHED stage, so you want to create a branch with the tag
+  -- git checkout -b 1.0.1-release 1.0.0
+
+Then compile and make a otp release as usual.
+To check vsn in ebin/kinetic.app should be the same as your git tag
+
+
+
